@@ -1,13 +1,16 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, ActivityIndicator, StyleSheet } from 'react-native';
 import { COLORS } from '@/constants/colors';
 
+/**
+ * Root index — loading/splash screen.
+ * Auth guard in _layout.tsx handles all routing decisions.
+ * This screen just shows a spinner while the guard resolves.
+ */
 export default function Index() {
   return (
     <View style={styles.container}>
-      <Text style={styles.emoji}>🎓</Text>
-      <Text style={styles.title}>The Modern Gurukul</Text>
-      <Text style={styles.subtitle}>Scaffold ready — Login screen coming in Milestone 3</Text>
+      <ActivityIndicator size="large" color={COLORS.primary[600]} />
     </View>
   );
 }
@@ -18,21 +21,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: COLORS.background.secondary,
-    padding: 32,
-  },
-  emoji: {
-    fontSize: 64,
-    marginBottom: 16,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: '700',
-    color: COLORS.primary[600],
-    marginBottom: 8,
-  },
-  subtitle: {
-    fontSize: 14,
-    color: COLORS.text.secondary,
-    textAlign: 'center',
   },
 });
